@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -12,6 +13,9 @@ class Booking(models.Model):
         ordering = ['-booking_date']
         verbose_name = 'Booking'
         verbose_name_plural = 'Bookings'
+    
+    def __str__(self):
+        return f"{self.name} - {self.no_of_guests} guests on {self.booking_date:%Y-%m-%d %H:%M}"
 
 class Menu(models.Model):
     title = models.CharField(max_length=255, unique=True)
@@ -23,3 +27,6 @@ class Menu(models.Model):
         ordering = ['title']
         verbose_name = 'Menu Item'
         verbose_name_plural = 'Menu Items'
+    
+    def __str__(self):
+        return f"{self.title} - {self.description}-  {self.price}"
