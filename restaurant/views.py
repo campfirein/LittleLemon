@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 from restaurant import serializers
 
@@ -33,10 +33,10 @@ class MenuItemsView(generics.ListCreateAPIView):
     GET: List all menu items
     POST: Create a new menu item
     """
-    # permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
     pagination_class = CustomPageNumberPagination
+    permission_classes = [IsAuthenticated]
 
 # RetrieveUpdateAPIView + DestroyAPIView: Handles GET, PUT, DELETE
 class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
@@ -49,7 +49,7 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()  # Fetch all booking objects
     serializer_class = BookingSerializer
 
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         try:
