@@ -1,3 +1,11 @@
+
+/**
+ * @typedef {Object} Dessert
+ * @property {string} name
+ * @property {number} calories
+ * @property {string} createdAt
+ */
+
 export const desserts = [
   {
     name: "Chocolate Cake",

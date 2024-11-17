@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { useMemo } from "react";
 function DessertsList({ data }) {
+  
+  if (!Array.isArray(data)) {
+    return <div>No desserts available</div>;
+  }
   const filteredDesserts = useMemo(() => {
     return data
       .filter(dessert => dessert.calories < 500)
