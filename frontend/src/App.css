@@ -1,42 +1,90 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 40px; /* Add spacing between the two sections */
+}
+
+.MainContainer {
+  display: flex;
+  flex-direction: row; /* Arrange desserts and form side by side */
+  gap: 50px; /* Space between desserts list and registration form */
+  justify-content: center;
+  flex-wrap: wrap; /* Ensure layout adjusts for smaller screens */
+}
+
+.DessertsList {
+  width: 300px; /* Limit width of desserts list */
+}
+
+.RegistrationForm {
+  width: 400px; /* Adjust form width */
+}
+
+h2 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between form fields */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+fieldset {
+  border: none;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+input,
+select {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: 32px;
+  padding: 0 8px;
 }
 
-.read-the-docs {
-  color: #888;
+.FieldError {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  padding: 12px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: darkblue;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #f9f9f9;
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
