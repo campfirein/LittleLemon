@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { validateEmail } from "./utils/validation";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -124,11 +125,6 @@ function PasswordErrorMessage() {
   return (
     <p className="error">Password must be at least 8 characters long.</p>
   );
-}
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
 }
 
 export default RegistrationForm;
