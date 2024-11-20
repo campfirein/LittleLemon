@@ -5,6 +5,8 @@ import RegistrationForm from './RegistrationForm';
 import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { desserts } from './data/desserts';
+import Switch from "./Switch";
+import { ThemeProvider } from "./ThemeContext";
 
 function ErrorFallback({error, resetErrorBoundary}) {
   useEffect(() => {
@@ -23,19 +25,22 @@ function ErrorFallback({error, resetErrorBoundary}) {
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="App">
-        <h2>Little Lemon Registration and Desserts</h2>
-        <div className="MainContainer">
-          <div className="DessertsList">
-            <h3>Low Calorie Desserts</h3>
-            <DessertsList data={desserts} />
-          </div>
-          <div className="RegistrationForm">
-            <h3>Sign Up Form</h3>
-            <RegistrationForm />
+      <ThemeProvider>
+        <div className="App">
+           <Switch />
+          <h2>Little Lemon Registration and Desserts</h2>
+          <div className="MainContainer">
+            <div className="DessertsList">
+              <h3>Low Calorie Desserts</h3>
+              <DessertsList data={desserts} />
+            </div>
+            <div className="RegistrationForm">
+              <h3>Sign Up Form</h3>
+              <RegistrationForm />
+            </div>
           </div>
         </div>
-      </div>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }
