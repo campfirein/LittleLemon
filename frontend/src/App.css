@@ -105,3 +105,26 @@ li {
   border-radius: 4px;
   font-size: 14px;
 }
+:root {
+  --bg-light: #ffffff;
+  --text-light: #000000;
+  --bg-dark: #000000;
+  --text-dark: #ffffff;
+}
+
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+}
