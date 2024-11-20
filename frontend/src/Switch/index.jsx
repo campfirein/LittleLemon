@@ -8,8 +8,11 @@ const Switch = () => {
       <label>
         <input
           type="checkbox"
-          onChange={toggleTheme} // Call toggleTheme when the switch is toggled
-          checked={theme === "dark"} // Set the switch position based on the theme
+          onChange={toggleTheme}
+          checked={theme === "dark"}
+          aria-label="Toggle dark mode"
+          role="switch"
+          aria-checked={theme === "dark"}
         />
         Toggle Theme
       </label>
