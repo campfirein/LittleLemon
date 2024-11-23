@@ -7,7 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { desserts } from './data/desserts';
 import Switch from "./Switch";
 import { ThemeProvider } from "./ThemeContext";
-
+import UserCard from './UserCard';
 function ErrorFallback({error, resetErrorBoundary}) {
   useEffect(() => {
     console.error('Error:', error);
@@ -38,7 +38,11 @@ function App() {
               <h3>Sign Up Form</h3>
               <RegistrationForm />
             </div>
+            <div className="UserList">
+              <h3>Customer Data</h3>
+              <UserCard />
           </div>
+        </div>
         </div>
       </ThemeProvider>
     </ErrorBoundary>
