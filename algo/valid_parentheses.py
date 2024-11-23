@@ -16,6 +16,8 @@ def is_valid(s: str) -> bool:
         return False
     if not isinstance(s, str):
         raise TypeError('Input must be a string')
+    if s and s[0] in BRACKET_MAP:  # String starts with closing bracket
+        return False
     # Map closing brackets to their corresponding opening brackets
     stack = []
 
