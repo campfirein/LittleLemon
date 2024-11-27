@@ -5,6 +5,7 @@ import RegistrationForm from './RegistrationForm';
 import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { desserts } from './data/desserts';
+import DayDisplay from './DayDisplay';
 import Switch from "./Switch";
 import { ThemeProvider } from "./ThemeContext";
 import UserCard from './UserCard';
@@ -29,6 +30,9 @@ function App() {
         <div className="App">
            <Switch />
           <h2>Little Lemon Registration and Desserts</h2>
+          <div style={{ padding: "40px" }}>
+            <DayDisplay />
+          </div>
           <div className="MainContainer">
             <div className="DessertsList">
               <h3>Low Calorie Desserts</h3>
