@@ -1,23 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import usePrevious from "./usePrevious";
 
-export default function DayDisplay() {
+const DayDisplay = () => {
   const [day, setDay] = useState("Monday");
   const prevDay = usePrevious(day);
 
+  const WORK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
   const getNextDay = () => {
-    if (day === "Monday") {
-      setDay("Tuesday");
-    } else if (day === "Tuesday") {
-      setDay("Wednesday");
-    } else if (day === "Wednesday") {
-      setDay("Thursday");
-    } else if (day === "Thursday") {
-      setDay("Friday");
-    } else if (day === "Friday") {
-      setDay("Monday");
-    }
-  };
+    const currentIndex = WORK_DAYS.indexOf(day);
+    const nextIndex = (currentIndex + 1) % WORK_DAYS.length;
+    setDay(WORK_DAYS[nextIndex]);
+ };
 
   return (
     <div>
@@ -30,3 +24,5 @@ export default function DayDisplay() {
     </div>
   );
 }
+
+export default React.memo(DayDisplay);
